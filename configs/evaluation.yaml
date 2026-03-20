@@ -1,0 +1,49 @@
+# Evaluation Configuration for Multi-Agent System
+
+# Agent Thresholds
+agents:
+  detection:
+    min_detection_rate: 0.7
+    min_confidence: 0.5
+
+  analysis:
+    min_event_count: 1
+    max_step_count: 1000
+
+  evaluation:
+    reference_level: "professional"
+
+  validation:
+    min_quality_score: 0.6
+    max_anomaly_count: 3
+    enable_human_review: true
+
+# System Metrics
+system:
+  latency:
+    target_p95_seconds: 5.0
+    target_p99_seconds: 10.0
+
+  throughput:
+    target_fps: 30.0
+
+  accuracy:
+    target_score_accuracy: 10.0  # Maximum difference from ground truth
+
+# Benchmark Configuration
+benchmark:
+  dataset_name: "sample_benchmark"
+  train_split: 0.7
+  val_split: 0.15
+  test_split: 0.15
+
+# Optimization Configuration
+optimization:
+  n_trials: 50
+  n_startup_trials: 10
+  target_metric: "score"
+
+# A/B Testing
+ab_testing:
+  n_runs: 5
+  significance_level: 0.05
