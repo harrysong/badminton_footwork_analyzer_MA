@@ -220,6 +220,7 @@ def route_after_validation(state: AgentState) -> Literal["complete", "revise", "
 
     # Validation failed but no critical issues
     if revision_count < max_revisions:
+        state["revision_count"] = revision_count + 1
         return "revise"
 
     return "complete"
